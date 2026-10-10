@@ -4,19 +4,21 @@ export const EMAIL = 'suveersaigal09@gmail.com'
 
 export const NAV = [
   { path: '/neev-ventures', label: 'Neev Ventures' },
+  { path: '/project-navjeevan', label: 'Project Navjeevan' },
   { path: '/experience', label: 'Experience' },
   { path: '/research', label: 'Research' },
   { path: '/honors', label: 'Honors' },
+  { path: '/music-theatre', label: 'Music & Theatre' },
   { path: '/press', label: 'Press' },
   { path: '/resume', label: 'Resume' },
   { path: '/contact', label: 'Contact' },
 ]
 
-export const STATS = [
-  { value: '20,000', label: 'women reached through outreach' },
-  { value: '1,000+', label: 'women entrepreneurs engaged directly' },
-  { value: '6', label: 'Indian states' },
-  { value: 'Top 0.4%', label: 'Blue Ocean Competition, 173 countries' },
+export const NEEV_STATS = [
+  { value: '~20,000', label: 'Women empowered' },
+  { value: '6', label: 'States reached' },
+  { value: '~40%', label: 'Avg. income growth' },
+  { value: '30', label: 'Workshops' },
 ]
 
 export const NEEV_PILLARS = [
@@ -52,105 +54,212 @@ export const GALLERY = [
   { src: '/images/workshop-3.jpg', alt: 'Women attending a Neev Ventures training session' },
 ]
 
-export type Role = {
-  title: string
-  org: string
-  period: string
-  points: string[]
-}
-
-export const LEADERSHIP: Role[] = [
-  {
-    title: 'Founder',
-    org: 'Project Navjeevan',
-    period: 'Jan 2026 – Present',
-    points: [
-      'Mentors formerly incarcerated women rebuilding economic independence; 40 women mentored and ₹2 lakh raised in seed support.',
-      'Participants now earn about ₹6,000–8,000 a month, from zero prior income.',
-      'Directed the documentary “Rebuilding Freedom”, recognized at three film festivals and adopted by India Vision Foundation.',
-    ],
-  },
-  {
-    title: 'Intern, Research & Documentation',
-    org: 'Haryana Institute of Public Administration',
-    period: 'Summer 2026',
-    points: [
-      'Designed a bilingual SHG Digital Literacy & Scheme Navigation Module, now part of HIPA’s mandatory officer training.',
-      'Recognized by the Director General, HIPA, for capacity-building work.',
-    ],
-  },
-  {
-    title: 'District-Level ODOP Pilot',
-    org: 'Office of the SDM, Narnaul',
-    period: 'Sep 2025 – Feb 2026',
-    points: [
-      'Worked with Aniruddh Yadav, IAS, on an ODOP framework for women-led SHGs, with train-the-trainer workshops.',
-    ],
-  },
-  {
-    title: 'Intern',
-    org: 'Passionfruit AI, New York',
-    period: 'June 2025',
-    points: ['Market research, competitor analysis and content planning for an AI discoverability company.'],
-  },
-  {
-    title: 'Venture Capital Intern',
-    org: 'SailThru Ventures, New Delhi',
-    period: 'Dec 2024 – Jan 2025',
-    points: ['Evaluated Shark Tank India startups and presented investment memos to the investment committee.'],
-  },
-  {
-    title: 'Secretary, Social Initiatives · Head, Entrepreneurship Society',
-    org: 'The Shri Ram School',
-    period: '2025 – Present',
-    points: [
-      'Led a Labour Day drive for 120 support staff and a school-supplies relief drive for children in Pahalgam.',
-      'Runs weekly workshops, simulations and pitch competitions for 40 students.',
-    ],
-  },
-]
-
 export const RESEARCH = [
   {
     tag: 'Publication',
     title: 'Empirical Study of the Effects of One District One Product (ODOP) Initiative on Indian Export Performance: A Panel Data Analysis',
     meta: 'International Journal of Social Science Research and Review, Vol. 9, Issue 1 (2026)',
+    url: 'https://ijssrr.com/journal/article/view/3214',
   },
   {
     tag: 'Presentation',
     title: 'Sigma Xi Student Research Showcase 2026',
     meta: 'Selected to present the ODOP research at a peer-reviewed international forum',
   },
+]
+
+export type Cert = {
+  title: string
+  org: string
+  img: string
+  // Original certificate (usually a PDF) opened when the card is clicked.
+  href: string
+}
+
+const doc = (path: string) => encodeURI(`/website_data/${path}`)
+
+export const NEEV_AWARDS: Cert[] = [
   {
-    tag: 'Research Assistant',
-    title: 'Prof. Daniel Fehder, Georgia Tech Scheller College of Business',
-    meta: 'Ongoing work on the economics of entrepreneurship and innovation',
+    title: 'Blue Ocean Competition, Top 100',
+    org: 'Top 0.43% of 23,000+ students from 173 countries',
+    img: '/images/certs/blue-ocean.jpg',
+    href: doc('Awards & Honors/Blue Ocean - Top 100.pdf'),
+  },
+  {
+    title: 'BRICS CCI Young Fellow',
+    org: 'Changemaker in Social Impact & Entrepreneurship, 2026 cohort',
+    img: '/images/certs/brics.jpg',
+    href: doc('Awards & Honors/BRICS CCI - Young Fellow -  Letter & Award.pdf'),
+  },
+  {
+    title: 'Young Entrepreneur Rising Star',
+    org: 'Aatmanirbhar MSME & Startup Awards 2026, CIMSME',
+    img: '/images/certs/cimsme.jpg',
+    href: doc('Awards & Honors/CIMSME - Young Entreprenuer Rising Star Award.jpeg'),
+  },
+  {
+    title: 'Youngest Mentor',
+    org: 'Navjyoti India Foundation, presented by Dr. Kiran Bedi',
+    img: '/images/certs/kiran-bedi.jpg',
+    href: doc('Awards & Honors/Dr. Kiran Bedi - Youngest Entreprenuer Mentor Award.jpeg'),
   },
 ]
 
-export const PROGRAMS = [
-  'Wharton Global Youth Program, Essentials of Entrepreneurship (2025)',
-  'Stanford Pre-Collegiate Studies, Strategic Marketing (2024)',
-  'Ashoka University Horizons, Being Entrepreneurial (2024)',
-  'Harvard Youth Leadership Program (2023)',
+export const RESEARCH_AWARDS: Cert[] = [
+  {
+    title: 'CREST Gold Award',
+    org: 'British Science Association, for the ODOP export-performance research',
+    img: '/images/certs/crest-gold.jpg',
+    href: doc('Awards & Honors/ODOP Research - Gold Crest Award.pdf'),
+  },
 ]
 
-export const HONORS = [
-  { title: 'NSDC Youth Contributor', org: 'National Skill Development Corporation', year: '2026' },
-  { title: 'BRICS CCI Young Fellow', org: 'Changemaker Award in Social Impact', year: '2026' },
-  { title: 'Young Entrepreneur Rising Star', org: 'Atmanirbhar MSME & Startup Awards', year: '2026' },
-  { title: 'CREST Gold Award', org: 'British Science Association', year: '2026' },
-  { title: 'Blue Ocean Top 100', org: 'Out of 23,000 entrants from 173 countries', year: '2025' },
+export type Honor = {
+  title: string
+  org: string
+  year: string
+  // Present only when there's a certificate to show.
+  img?: string
+  href?: string
+}
+
+export const HONORS: Honor[] = [
+  {
+    title: 'NSDC Youth Contributor',
+    org: 'National Skill Development Corporation',
+    year: '2026',
+    img: '/images/certs/nsdc.jpg',
+    href: doc('Neev Ventures/Ministry of Skill & Entrepreneurship - NSDC - Youth Contributor.pdf'),
+  },
+  {
+    title: 'BRICS CCI Young Fellow',
+    org: 'Changemaker Award in Social Impact',
+    year: '2026',
+    img: '/images/certs/brics.jpg',
+    href: doc('Awards & Honors/BRICS CCI - Young Fellow -  Letter & Award.pdf'),
+  },
+  {
+    title: 'Young Entrepreneur Rising Star',
+    org: 'Aatmanirbhar MSME & Startup Awards, CIMSME',
+    year: '2026',
+    img: '/images/certs/cimsme.jpg',
+    href: doc('Awards & Honors/CIMSME - Young Entreprenuer Rising Star Award.jpeg'),
+  },
+  {
+    title: 'CREST Gold Award',
+    org: 'British Science Association',
+    year: '2026',
+    img: '/images/certs/crest-gold.jpg',
+    href: doc('Awards & Honors/ODOP Research - Gold Crest Award.pdf'),
+  },
+  {
+    title: 'AP Scholar with Honor',
+    org: 'College Board',
+    year: '2026',
+    img: '/images/certs/ap-scholar.jpg',
+    href: doc('Academic Honours & Awards/AP Scholors with Honors Award.pdf'),
+  },
+  {
+    title: 'Innovator Award',
+    org: 'The Shri Ram School, for creative and original thinking',
+    year: '2026',
+    img: '/images/certs/innovator.jpg',
+    href: doc('Awards & Honors/Innovator Award.pdf'),
+  },
+  {
+    title: 'Blue Ocean Top 100',
+    org: 'Out of 23,000 entrants from 173 countries',
+    year: '2025',
+    img: '/images/certs/blue-ocean.jpg',
+    href: doc('Awards & Honors/Blue Ocean - Top 100.pdf'),
+  },
+  {
+    title: 'DELE Spanish Diploma, A2',
+    org: 'Instituto Cervantes',
+    year: '2025',
+    img: '/images/certs/spanish-diploma.jpg',
+    href: doc('Academic Honours & Awards/Spanish Diploma.pdf'),
+  },
+  {
+    title: 'Youngest Entrepreneur Mentor',
+    org: 'Navjyoti India Foundation, presented by Dr. Kiran Bedi',
+    year: '',
+    img: '/images/certs/kiran-bedi.jpg',
+    href: doc('Awards & Honors/Dr. Kiran Bedi - Youngest Entreprenuer Mentor Award.jpeg'),
+  },
   { title: 'National Economics Olympiad', org: 'SRCC, All India Rank 43', year: '2025' },
-  { title: 'Youngest Entrepreneur Mentor', org: 'Navjyoti India Foundation', year: '' },
   { title: 'IMO Southeast Asia, Bronze', org: 'National level', year: '2024' },
 ]
 
-export const ACADEMICS = [
-  { value: '1530', label: 'SAT' },
-  { value: '5 × 4', label: 'AP Psych, Micro, Macro, Calc BC' },
-  { value: '98.6%', label: 'Grade 10, ICSE' },
-  { value: 'Top 0.1%', label: 'Nationally in 4 ICSE subjects' },
+export const NAVJEEVAN_STATS = [
+  { value: '40', label: 'Women mentored' },
+  { value: '₹2 lakh', label: 'Raised in seed support' },
+  { value: '₹6–8k', label: 'Monthly earnings, from zero' },
+  { value: '6', label: 'Film festival honours' },
+]
+
+export const DOCUMENTARY_ID = 'ZZ-DO6HTit8'
+
+export const FILM_AWARDS: Cert[] = [
+  { title: 'Best Young Filmmaker Under 18', org: 'Indian Independent Film Festival', img: '/images/certs/film-iiff.jpg', href: '/images/certs/film-iiff.jpg' },
+  { title: 'Winner, Student Film', org: 'Crown Wood International Film Festival', img: '/images/certs/film-crown-wood.jpg', href: '/images/certs/film-crown-wood.jpg' },
+  { title: 'Winner', org: 'Rameshwaram International Film Festival 2026', img: '/images/certs/film-rameshwaram.jpg', href: '/images/certs/film-rameshwaram.jpg' },
+  { title: 'Awarded', org: 'Aryan International Children’s Film Festival of Jaipur 2026', img: '/images/certs/film-aryan.jpg', href: '/images/certs/film-aryan.jpg' },
+  { title: 'Best Director, Honorable Mention', org: 'Caravan International Film Festival', img: '/images/certs/film-caravan.jpg', href: '/images/certs/film-caravan.jpg' },
+  { title: 'Honorable Mention, Best Student Short', org: 'Makizhmithran International Film Festival', img: '/images/certs/film-makizhmithran.jpg', href: '/images/certs/film-makizhmithran.jpg' },
+]
+
+export const MUSIC_THEATRE = [
+  {
+    title: 'Stage 4 Change',
+    role: 'Co-Founder',
+    period: '2025 – Present',
+    text: 'A student-led theatre initiative. Directed three David Ives productions and raised ₹1.58 lakh, supporting 175 children with special needs through Action For Autism and a life-saving paediatric heart surgery through Koshika Foundation.',
+  },
+  {
+    title: 'Guitar',
+    role: 'Trinity College London, Rock & Pop',
+    period: '2017 – Present',
+    text: 'Nine years of training. Grade 6 certified, performed at India International Centre, and now preparing for Grade 8; plays in a band.',
+  },
+  {
+    title: 'Drama',
+    role: 'LAMDA',
+    period: '2024 – Present',
+    text: 'Lead roles in school and independent productions. LAMDA Level 3 Certificate in Performance (Grade 7), Solo Acting, with Merit.',
+  },
+]
+
+export const MUSIC_PHOTOS = [
+  { src: '/images/music/concert-1.jpg', alt: 'Suveer playing electric guitar with the band at a performance concert' },
+  { src: '/images/music/concert-2.jpg', alt: 'The band performing on stage' },
+]
+
+export const THEATRE_PHOTOS = [
+  { src: '/images/theatre/play-2.jpg', alt: 'Suveer on stage in a Stage 4 Change production' },
+  { src: '/images/theatre/play-1.jpg', alt: 'A scene at a desk from a school production' },
+  { src: '/images/theatre/play-3.jpg', alt: 'Suveer in costume, mid-scene' },
+]
+
+export const MUSIC_THEATRE_CERTS: Cert[] = [
+  {
+    title: 'Stage 4 Change',
+    org: 'Letter of appreciation, The Bigger Picture',
+    img: '/images/certs/stage-4-change.jpg',
+    href: doc('Music _ Theatre/Stage for Change - Letter.pdf'),
+  },
+  {
+    title: 'Grade 6 Guitar, Rock & Pop',
+    org: 'Trinity College London',
+    img: '/images/certs/trinity.jpg',
+    href: doc('Music _ Theatre/Trinity Certificate.jpg'),
+  },
+  {
+    title: 'Grade 7 Acting, Merit',
+    org: 'London Academy of Music & Dramatic Art',
+    img: '/images/certs/lamda.jpg',
+    href: doc('Music _ Theatre/Lamda - Grade 7 .pdf'),
+  },
 ]
 
 export const PRESS = [
@@ -165,15 +274,6 @@ export const PRESS = [
     url: 'https://share.google/uqWWqUJqM9uREVZgf',
   },
 ]
-
-export const BEYOND = [
-  { title: 'Stage 4 Change', text: 'Co-founded a student theatre initiative; raised ₹1.6 lakh for 175 children with special needs.' },
-  { title: 'Guitar', text: 'Nine years of training, Trinity Rock & Pop Grade 6, performed at India International Centre.' },
-  { title: 'Drama', text: 'Lead roles on stage; LAMDA Grade 7 with Merit.' },
-  { title: 'Languages', text: 'English, Hindi and Spanish (DELE A1 & A2).' },
-]
-
-export const HERO_TAGS = ['Social Entrepreneur', 'Researcher', 'Economics', 'Filmmaker', 'Changemaker']
 
 export type ResumeEntry = {
   title: string
