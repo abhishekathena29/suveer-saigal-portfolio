@@ -3,6 +3,7 @@ import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-
 import {
   DOCUMENTARY_ID,
   EMAIL,
+  EXPERIENCE,
   FILM_AWARDS,
   GALLERY,
   HONORS,
@@ -10,20 +11,15 @@ import {
   MUSIC_PHOTOS,
   MUSIC_THEATRE_CERTS,
   NAV,
-  NAVJEEVAN_STATS,
   NEEV_AWARDS,
-  NEEV_MILESTONES,
   NEEV_PILLARS,
   NEEV_STATS,
   NEEV_URL,
   PRESS,
   RESEARCH,
   RESEARCH_AWARDS,
-  RESUME,
-  RESUME_URL,
   THEATRE_PHOTOS,
   type Cert,
-  type ResumeEntry,
 } from './data'
 import './App.css'
 
@@ -87,13 +83,28 @@ function Header() {
   )
 }
 
-function PageHead({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: ReactNode }) {
+function PageHead({
+  eyebrow,
+  title,
+  sub,
+  intro,
+}: {
+  eyebrow?: string
+  title: string
+  sub?: string
+  intro?: ReactNode
+}) {
   return (
     <div className="page-head">
-      <p className="eyebrow fade-up">{eyebrow}</p>
+      {eyebrow && <p className="eyebrow fade-up">{eyebrow}</p>}
       <h1 className="fade-up" style={{ animationDelay: '0.1s' }}>
         {title}
       </h1>
+      {sub && (
+        <p className="page-sub fade-up" style={{ animationDelay: '0.15s' }}>
+          {sub}
+        </p>
+      )}
       {intro && (
         <p className="body-lg fade-up" style={{ animationDelay: '0.2s' }}>
           {intro}
@@ -236,7 +247,7 @@ function NeevIntro() {
       <div className="reveal">
         <p className="quote">“Because talent is everywhere. Access is not.”</p>
         <p className="body-lg">
-          A social enterprise I founded in January 2025, helping women from some of the most
+          A social enterprise helping women from some of the most
           overlooked communities build livelihoods of their own.
         </p>
         <div className="hero-actions">
@@ -306,12 +317,6 @@ function NeevPage() {
 
       <Pillars />
 
-      <ul className="milestones reveal">
-        {NEEV_MILESTONES.map((m) => (
-          <li key={m}>{m}</li>
-        ))}
-      </ul>
-
       <div className="marquee reveal" aria-label="Photos from Neev Ventures">
         <div className="marquee-track">
           {[...GALLERY, ...GALLERY].map((g, i) => (
@@ -332,8 +337,8 @@ function NavjeevanPage() {
   return (
     <>
       <PageHead
-        eyebrow="With India Vision Foundation"
         title="Project Navjeevan"
+        sub="In collaboration with India Vision Foundation"
         intro="‘Nav’ means new, and ‘Jeevan’ means life. Project Navjeevan supports formerly incarcerated and undertrial rural women in rebuilding their lives through self-employment."
       />
 
@@ -351,8 +356,6 @@ function NavjeevanPage() {
           <img src="/images/navjeevan/what.jpg" alt="Women at a Project Navjeevan session" />
         </figure>
       </div>
-
-      <Stats items={NAVJEEVAN_STATS} />
 
       <div className="duo">
         <article className="card duo-card reveal">
@@ -417,14 +420,13 @@ function ExperiencePage() {
     <>
       <PageHead eyebrow="Experience" title="Work experience." />
       <ol className="timeline">
-        {RESUME.experience.map((r) => (
+        {EXPERIENCE.map((r) => (
           <li key={r.org + r.title} className="reveal">
-            <div className="tl-meta">{r.period}</div>
             <div className="tl-card">
               <h3>{r.title}</h3>
               <p className="tl-org">{r.org}</p>
               <ul>
-                {r.points?.map((p) => (
+                {r.points.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
               </ul>
@@ -481,7 +483,7 @@ function HonorsPage() {
       <PageHead eyebrow="Honors & Awards" title="Recognition along the way." />
       <ul className="honors">
         {HONORS.map((h, i) => (
-          <li key={h.title} className="reveal" style={{ transitionDelay: `${(i % 2) * 0.06}s` }}>
+          <li key={h.title + h.org} className="reveal" style={{ transitionDelay: `${(i % 2) * 0.06}s` }}>
             {h.img && (
               <a className="honor-thumb" href={h.href} target="_blank" rel="noreferrer">
                 <img src={h.img} alt={`${h.title} certificate`} loading="lazy" />
@@ -496,7 +498,6 @@ function HonorsPage() {
                 </a>
               )}
             </div>
-            {h.year && <span className="year">{h.year}</span>}
           </li>
         ))}
       </ul>
@@ -562,136 +563,13 @@ function PressPage() {
   )
 }
 
-function ResumeBlock({ title, entries }: { title: string; entries: ResumeEntry[] }) {
-  return (
-    <section className="rs-block reveal">
-      <h2>{title}</h2>
-      {entries.map((e) => (
-        <div key={e.title + e.org} className="rs-entry">
-          <div className="rs-entry-head">
-            <h3>{e.title}</h3>
-            {e.period && <span className="rs-period">{e.period}</span>}
-          </div>
-          {e.org && <p className="rs-org">{e.org}</p>}
-          {e.points && (
-            <ul>
-              {e.points.map((p) => (
-                <li key={p}>{p}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))}
-    </section>
-  )
-}
-
-function ResumePage() {
-  const { education: ed } = RESUME
-  return (
-    <div className="resume">
-      <header className="rs-top fade-up">
-        <img src="/images/suveer.jpeg" alt="" />
-        <div>
-          <p className="eyebrow">Résumé</p>
-          <h1>Suveer Saigal</h1>
-          <p className="rs-contact">
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            <span>·</span>
-            <a href={NEEV_URL} target="_blank" rel="noreferrer">
-              neevventures.in
-            </a>
-          </p>
-        </div>
-        <a className="btn primary" href={RESUME_URL} download="Resume - Suveer Saigal.pdf">
-          Download PDF ↓
-        </a>
-      </header>
-
-      <div className="rs-grid">
-        <aside className="rs-side">
-          <section className="rs-block reveal">
-            <h2>Education</h2>
-            <h3>{ed.school}</h3>
-            <p className="rs-org">{ed.board}</p>
-            <p className="rs-period">{ed.period}</p>
-            <ul className="rs-pills">
-              {ed.grades.map((g) => (
-                <li key={g}>{g}</li>
-              ))}
-            </ul>
-            <ul>
-              {ed.points.map((p) => (
-                <li key={p}>{p}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="rs-block reveal">
-            <h2>Testing</h2>
-            <div className="rs-scores">
-              {RESUME.testing.map((t) => (
-                <div key={t.label} className={t.detail ? 'wide' : ''}>
-                  <strong>{t.value}</strong>
-                  <span>{t.label}</span>
-                  {t.detail && <small>{t.detail}</small>}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="rs-block reveal">
-            <h2>Skills</h2>
-            {RESUME.skills.map((g) => (
-              <div key={g.label} className="rs-skill">
-                <h3>{g.label}</h3>
-                <ul className="rs-pills">
-                  {g.items.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </section>
-        </aside>
-
-        <div className="rs-main">
-          <ResumeBlock title="Honors & Awards" entries={RESUME.honors} />
-          <ResumeBlock title="Community Engagement & Leadership" entries={RESUME.leadership} />
-          <ResumeBlock title="Work Experience" entries={RESUME.experience} />
-          <ResumeBlock title="Research & Publications" entries={RESUME.research} />
-          <ResumeBlock title="Summer Programs" entries={RESUME.programs} />
-          <ResumeBlock title="Extracurriculars" entries={RESUME.extracurriculars} />
-        </div>
-      </div>
-
-      <div className="more reveal">
-        <a className="btn primary" href={RESUME_URL} download="Resume - Suveer Saigal.pdf">
-          Download the PDF résumé ↓
-        </a>
-      </div>
-    </div>
-  )
-}
-
 function ContactPage() {
   return (
     <div className="contact">
-      <p className="eyebrow fade-up">Contact</p>
-      <h1 className="fade-up" style={{ animationDelay: '0.1s' }}>
-        Let's build something that matters.
-      </h1>
-      <p className="body-lg fade-up" style={{ animationDelay: '0.2s' }}>
-        For partnerships with Neev Ventures, research collaborations or just a conversation, I'd
-        love to hear from you.
-      </p>
-      <div className="hero-actions center fade-up" style={{ animationDelay: '0.3s' }}>
+      <div className="hero-actions center fade-up">
         <a className="btn primary" href={`mailto:${EMAIL}`}>
           {EMAIL}
         </a>
-        <Link className="btn ghost" to="/resume">
-          View résumé
-        </Link>
       </div>
     </div>
   )
@@ -736,17 +614,10 @@ function Layout() {
           <Route path="/honors" element={<HonorsPage />} />
           <Route path="/music-theatre" element={<MusicTheatrePage />} />
           <Route path="/press" element={<PressPage />} />
-          <Route path="/resume" element={<ResumePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      <footer className="footer">
-        © {new Date().getFullYear()} Suveer Saigal ·{' '}
-        <a href={NEEV_URL} target="_blank" rel="noreferrer">
-          Neev Ventures
-        </a>
-      </footer>
     </>
   )
 }
