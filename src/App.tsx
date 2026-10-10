@@ -5,6 +5,7 @@ import {
   BEYOND,
   EMAIL,
   GALLERY,
+  HERO_TAGS,
   HONORS,
   LEADERSHIP,
   NAV,
@@ -14,8 +15,10 @@ import {
   PRESS,
   PROGRAMS,
   RESEARCH,
+  RESUME,
   RESUME_URL,
   STATS,
+  type ResumeEntry,
 } from './data'
 import './App.css'
 
@@ -109,40 +112,31 @@ function SectionHead({ eyebrow, title }: { eyebrow: string; title: string }) {
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero-text">
-        <p className="eyebrow fade-up" style={{ animationDelay: '0.05s' }}>
-          Student · Founder · Researcher
-        </p>
-        <h1 className="fade-up" style={{ animationDelay: '0.15s' }}>
-          Building foundations so <em>overlooked women</em> can rise.
-        </h1>
-        <p className="lead fade-up" style={{ animationDelay: '0.3s' }}>
-          I'm Suveer Saigal, a student at The Shri Ram School, Gurugram, and the founder of{' '}
-          <Link to="/neev-ventures">Neev Ventures</Link>, a social enterprise helping women-led
-          self-help groups build sustainable livelihoods through financial literacy, enterprise and
-          market access.
-        </p>
-        <div className="hero-actions fade-up" style={{ animationDelay: '0.45s' }}>
-          <Link className="btn primary" to="/neev-ventures">
-            Explore my work
-          </Link>
-          <Link className="btn ghost" to="/resume">
-            View résumé
-          </Link>
-        </div>
+      <div className="hero-bg" aria-hidden="true">
+        <span className="ripple r1" />
+        <span className="ripple r2" />
+        <span className="ripple r3" />
+        {Array.from({ length: 14 }, (_, i) => (
+          <span key={i} className={`dot d${i % 7}`} style={{ left: `${(i * 7.3 + 4) % 96}%` }} />
+        ))}
       </div>
-      <div className="hero-photo fade-in" style={{ animationDelay: '0.25s' }}>
+      <div className="hero-photo fade-in">
         <div className="photo-ring" />
         <img src="/images/suveer.jpeg" alt="Portrait of Suveer Saigal" />
       </div>
-      <ul className="stats">
-        {STATS.map((s, i) => (
-          <li key={s.label} className="fade-up" style={{ animationDelay: `${0.55 + i * 0.1}s` }}>
-            <strong>{s.value}</strong>
-            <span>{s.label}</span>
+      <h1 className="hero-name fade-up" style={{ animationDelay: '0.2s' }}>
+        Suveer Saigal
+      </h1>
+      <ul className="hero-tags">
+        {HERO_TAGS.map((t, i) => (
+          <li key={t} className="fade-up" style={{ animationDelay: `${0.45 + i * 0.1}s` }}>
+            {t}
           </li>
         ))}
       </ul>
+      <a href="#about" className="scroll-cue fade-in" style={{ animationDelay: '1.2s' }} aria-label="Scroll to About">
+        <span />
+      </a>
     </section>
   )
 }
@@ -154,7 +148,7 @@ function About() {
       <div className="about-grid">
         <div className="reveal">
           <p className="body-lg">
-            I've been at The Shri Ram School, Moulsari since 2013, consistently ranking among the
+            I'm a student at The Shri Ram School, Moulsari, where I've studied since 2013, consistently ranking among the
             top three in my class and receiving Scholar of the Year along with 30+ subject
             excellence awards. My interests sit where economics, entrepreneurship and public policy
             meet, and most of what I do outside the classroom starts with sitting down and
@@ -231,6 +225,14 @@ function Home() {
       <section className="section">
         <SectionHead eyebrow="Featured initiative" title="Neev Ventures" />
         <NeevIntro />
+        <ul className="stats reveal">
+          {STATS.map((s) => (
+            <li key={s.label}>
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </li>
+          ))}
+        </ul>
         <Pillars />
         <div className="more reveal">
           <Link className="btn ghost" to="/neev-ventures">
@@ -384,33 +386,115 @@ function PressPage() {
   )
 }
 
-function ResumePage() {
+function ResumeBlock({ title, entries }: { title: string; entries: ResumeEntry[] }) {
   return (
-    <>
-      <PageHead
-        eyebrow="Résumé"
-        title="The full picture."
-        intro="Education, testing, honors, leadership, research and more, all on one page."
-      />
-      <div className="hero-actions resume-actions fade-up" style={{ animationDelay: '0.3s' }}>
-        <a className="btn primary" href={RESUME_URL} download="Resume - Suveer Saigal.pdf">
-          Download PDF
-        </a>
-        <a className="btn ghost" href={RESUME_URL} target="_blank" rel="noreferrer">
-          Open in new tab ↗
-        </a>
-      </div>
-      <div className="resume-frame reveal">
-        <object data={`${RESUME_URL}#view=FitH`} type="application/pdf" aria-label="Résumé of Suveer Saigal">
-          <div className="resume-fallback">
-            <p>Your browser can't show the PDF here.</p>
-            <a className="btn primary" href={RESUME_URL} target="_blank" rel="noreferrer">
-              Open the résumé
-            </a>
+    <section className="rs-block reveal">
+      <h2>{title}</h2>
+      {entries.map((e) => (
+        <div key={e.title + e.org} className="rs-entry">
+          <div className="rs-entry-head">
+            <h3>{e.title}</h3>
+            {e.period && <span className="rs-period">{e.period}</span>}
           </div>
-        </object>
+          {e.org && <p className="rs-org">{e.org}</p>}
+          {e.points && (
+            <ul>
+              {e.points.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </section>
+  )
+}
+
+function ResumePage() {
+  const { education: ed } = RESUME
+  return (
+    <div className="resume">
+      <header className="rs-top fade-up">
+        <img src="/images/suveer.jpeg" alt="" />
+        <div>
+          <p className="eyebrow">Résumé</p>
+          <h1>Suveer Saigal</h1>
+          <p className="rs-contact">
+            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            <span>·</span>
+            <a href={NEEV_URL} target="_blank" rel="noreferrer">
+              neevventures.in
+            </a>
+          </p>
+        </div>
+        <a className="btn primary" href={RESUME_URL} download="Resume - Suveer Saigal.pdf">
+          Download PDF ↓
+        </a>
+      </header>
+
+      <div className="rs-grid">
+        <aside className="rs-side">
+          <section className="rs-block reveal">
+            <h2>Education</h2>
+            <h3>{ed.school}</h3>
+            <p className="rs-org">{ed.board}</p>
+            <p className="rs-period">{ed.period}</p>
+            <ul className="rs-pills">
+              {ed.grades.map((g) => (
+                <li key={g}>{g}</li>
+              ))}
+            </ul>
+            <ul>
+              {ed.points.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="rs-block reveal">
+            <h2>Testing</h2>
+            <div className="rs-scores">
+              {RESUME.testing.map((t) => (
+                <div key={t.label} className={t.detail ? 'wide' : ''}>
+                  <strong>{t.value}</strong>
+                  <span>{t.label}</span>
+                  {t.detail && <small>{t.detail}</small>}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rs-block reveal">
+            <h2>Skills</h2>
+            {RESUME.skills.map((g) => (
+              <div key={g.label} className="rs-skill">
+                <h3>{g.label}</h3>
+                <ul className="rs-pills">
+                  {g.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        </aside>
+
+        <div className="rs-main">
+          <ResumeBlock title="Honors & Awards" entries={RESUME.honors} />
+          <ResumeBlock title="Community Engagement & Leadership" entries={RESUME.leadership} />
+          <ResumeBlock title="Pre-Professional Experience" entries={RESUME.experience} />
+          <ResumeBlock title="Research & Publications" entries={RESUME.research} />
+          <ResumeBlock title="Summer Programs" entries={RESUME.programs} />
+          <ResumeBlock title="Extracurriculars" entries={RESUME.extracurriculars} />
+        </div>
       </div>
-    </>
+
+      <div className="more reveal">
+        <a className="btn primary" href={RESUME_URL} download="Resume - Suveer Saigal.pdf">
+          Download the PDF résumé ↓
+        </a>
+      </div>
+    </div>
   )
 }
 
