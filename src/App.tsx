@@ -566,7 +566,15 @@ function PressPage() {
 function ContactPage() {
   return (
     <div className="contact">
-      <div className="hero-actions center fade-up">
+      <p className="eyebrow fade-up">Contact</p>
+      <h1 className="fade-up" style={{ animationDelay: '0.1s' }}>
+        Get in touch.
+      </h1>
+      <p className="body-lg fade-up" style={{ animationDelay: '0.2s' }}>
+        Whether it’s a partnership, a research collaboration, a question about my work or just a
+        hello, I’d love to hear from you. The best way to reach me is by email.
+      </p>
+      <div className="hero-actions center fade-up" style={{ animationDelay: '0.3s' }}>
         <a className="btn primary" href={`mailto:${EMAIL}`}>
           {EMAIL}
         </a>

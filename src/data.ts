@@ -259,6 +259,11 @@ export const PRESS = [
     title: 'When No One Else Would, He Did. Suveer Saigal is rebuilding lives one woman at a time.',
     url: 'https://share.google/uqWWqUJqM9uREVZgf',
   },
+  {
+    outlet: 'Lakes Paradise',
+    title: 'AICFF 2026 and 16IFF 2026 Announce Award Winners. Rebuilding Freedom named Best Short Documentary/Student Film.',
+    url: 'https://www.lakesparadise.com/en/article-51-1_542280.html',
+  },
 ]
 
 export type Experience = {
