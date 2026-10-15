@@ -86,6 +86,11 @@ export const NEEV_AWARDS: Cert[] = [
     org: 'Presented by Dr. Kiran Bedi',
     img: '/images/certs/kiran-bedi.jpg',
   },
+  {
+    title: 'NSDC Youth Contributor',
+    org: 'National Skill Development Corporation',
+    img: '/images/certs/nsdc.jpg',
+  },
 ]
 
 export const RESEARCH_AWARDS: Cert[] = [
