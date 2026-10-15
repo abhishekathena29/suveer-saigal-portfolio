@@ -115,9 +115,14 @@ export const HONORS: Honor[] = [
     img: '/images/certs/cisce-spanish.jpg',
   },
   {
-    title: 'NSDC Youth Contributor',
-    org: 'National Skill Development Corporation',
-    img: '/images/certs/nsdc.jpg',
+    title: 'Scholar of the Year',
+    org: 'The Shri Ram School, Class X, 2024–25',
+    img: '/images/certs/scholar-of-the-year.jpg',
+  },
+  {
+    title: 'Academic Excellence Award',
+    org: 'The Shri Ram School, above 90% in all subjects, Class XI, 2025–26',
+    img: '/images/certs/academic-excellence-xi.jpg',
   },
   {
     title: 'BRICS CCI Young Fellow',
@@ -161,6 +166,7 @@ export const HONORS: Honor[] = [
   },
   { title: 'National Economics Olympiad', org: 'SRCC, All India Rank 43' },
   { title: 'IMO Southeast Asia, Bronze', org: 'National level' },
+  { title: 'NSDC Youth Contributor', org: 'National Skill Development Corporation' },
 ]
 
 export const DOCUMENTARY_ID = 'ZZ-DO6HTit8'
