@@ -129,12 +129,9 @@ function CertGrid({ items, cols = 4 }: { items: Cert[]; cols?: 3 | 4 }) {
   return (
     <div className={`cert-grid cols-${cols}`}>
       {items.map((c, i) => (
-        <a
+        <div
           key={c.img}
           className="cert reveal"
-          href={c.href}
-          target="_blank"
-          rel="noreferrer"
           style={{ transitionDelay: `${(i % cols) * 0.06}s` }}
         >
           <div className="cert-img">
@@ -144,38 +141,36 @@ function CertGrid({ items, cols = 4 }: { items: Cert[]; cols?: 3 | 4 }) {
             <h3>{c.title}</h3>
             <p>{c.org}</p>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   )
 }
 
-function CertFeature({ cert, eyebrow, text, cta }: { cert: Cert; eyebrow: string; text: string; cta: string }) {
+function CertFeature({ cert, eyebrow, text }: { cert: Cert; eyebrow: string; text: string }) {
   return (
     <div className="feature cert-feature reveal">
-      <a className="cert-img" href={cert.href} target="_blank" rel="noreferrer">
+      <div className="cert-img">
         <img src={cert.img} alt={`${cert.title}, ${cert.org}`} loading="lazy" />
-      </a>
+      </div>
       <div>
         <p className="eyebrow">{eyebrow}</p>
         <h3>{cert.title}</h3>
         <p className="tl-org">{cert.org}</p>
         <p>{text}</p>
-        <a className="btn ghost" href={cert.href} target="_blank" rel="noreferrer">
-          {cta} ↗
-        </a>
       </div>
     </div>
   )
 }
 
-function PhotoGrid({ photos }: { photos: { src: string; alt: string }[] }) {
+function PhotoGrid({ photos }: { photos: { src: string; alt: string; portrait?: boolean }[] }) {
+  const mixed = photos.some((p) => p.portrait)
   return (
-    <div className={`photo-grid n${photos.length}`}>
+    <div className={`photo-grid n${photos.length} ${mixed ? 'mixed' : ''}`}>
       {photos.map((p, i) => (
         <img
           key={p.src}
-          className="reveal"
+          className={`reveal ${p.portrait ? 'portrait' : ''}`}
           src={p.src}
           alt={p.alt}
           loading="lazy"
@@ -470,7 +465,6 @@ function ResearchPage() {
           cert={c}
           eyebrow="Recognition"
           text="Awarded for the research project “Effect of One District One Product (ODOP) on Indian Export Performance”."
-          cta="View certificate"
         />
       ))}
     </>
@@ -478,29 +472,22 @@ function ResearchPage() {
 }
 
 function HonorsPage() {
+  const certs = HONORS.filter((h): h is Cert => !!h.img)
+  const others = HONORS.filter((h) => !h.img)
   return (
     <>
       <PageHead eyebrow="Honors & Awards" title="Recognition along the way." />
-      <ul className="honors">
-        {HONORS.map((h, i) => (
-          <li key={h.title + h.org} className="reveal" style={{ transitionDelay: `${(i % 2) * 0.06}s` }}>
-            {h.img && (
-              <a className="honor-thumb" href={h.href} target="_blank" rel="noreferrer">
-                <img src={h.img} alt={`${h.title} certificate`} loading="lazy" />
-              </a>
-            )}
-            <div className="honor-text">
+      <CertGrid items={certs} />
+      {others.length > 0 && (
+        <ul className="honors">
+          {others.map((h, i) => (
+            <li key={h.title + h.org} className="reveal" style={{ transitionDelay: `${(i % 2) * 0.06}s` }}>
               <h3>{h.title}</h3>
               <p>{h.org}</p>
-              {h.href && (
-                <a className="read" href={h.href} target="_blank" rel="noreferrer">
-                  View certificate ↗
-                </a>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   )
 }
@@ -598,6 +585,7 @@ function NotFound() {
 
 function Layout() {
   const { pathname } = useLocation()
+  // Remember which page opened the viewer so browser back/forward closes it.
   useReveal(pathname)
 
   useEffect(() => {

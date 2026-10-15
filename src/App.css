@@ -695,11 +695,6 @@ main {
     box-shadow 0.3s;
 }
 
-.cert.visible:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-
 .cert-img {
   display: block;
   aspect-ratio: 4 / 3;
@@ -826,6 +821,15 @@ main {
   aspect-ratio: auto;
 }
 
+/* A landscape photo beside a portrait one, columns sized so heights line up. */
+.photo-grid.n2.mixed {
+  grid-template-columns: 2.37fr 1fr;
+}
+
+.photo-grid img.portrait {
+  aspect-ratio: 3 / 4;
+}
+
 /* ---------- Experience timeline ---------- */
 .timeline {
   list-style: none;
@@ -919,7 +923,7 @@ a.card {
 /* ---------- Honors ---------- */
 .honors {
   list-style: none;
-  margin: 0;
+  margin: 16px 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -927,9 +931,6 @@ a.card {
 }
 
 .honors li {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   padding: 18px 20px;
   border-radius: 16px;
   background: var(--surface);
@@ -939,39 +940,6 @@ a.card {
 .honors h3 {
   font-size: 0.98rem;
   font-weight: 600;
-}
-
-.honor-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.honor-text .read {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 0.8rem;
-  text-decoration: none;
-}
-
-.honor-thumb {
-  flex: none;
-  width: 88px;
-  height: 88px;
-  padding: 6px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #fff7ef, #f1f6f2);
-  border: 1px solid var(--line);
-  transition: transform 0.25s;
-}
-
-.honor-thumb:hover {
-  transform: scale(1.05);
-}
-
-.honor-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .honors p {
@@ -1177,6 +1145,7 @@ a.card {
 
 @media (max-width: 520px) {
   .photo-grid.n2,
+  .photo-grid.n2.mixed,
   .photo-grid.n3 {
     grid-template-columns: 1fr;
   }
@@ -1186,10 +1155,6 @@ a.card {
     aspect-ratio: 3 / 2;
   }
 
-  .honor-thumb {
-    width: 64px;
-    height: 64px;
-  }
 
   .cert-grid.cols-4,
   .cert-grid.cols-3 {

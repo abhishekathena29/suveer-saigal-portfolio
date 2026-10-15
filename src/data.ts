@@ -1,5 +1,5 @@
 export const NEEV_URL = 'https://www.neevventures.in/'
-export const EMAIL = 'suveersaigal09@gmail.com'
+export const EMAIL = 'suveer.saigal2009@gmail.com'
 
 export const NAV = [
   { path: '/neev-ventures', label: 'Neev Ventures' },
@@ -63,36 +63,28 @@ export type Cert = {
   title: string
   org: string
   img: string
-  // Original certificate (usually a PDF) opened when the card is clicked.
-  href: string
 }
-
-const doc = (path: string) => encodeURI(`/website_data/${path}`)
 
 export const NEEV_AWARDS: Cert[] = [
   {
     title: 'Blue Ocean Competition, Top 100',
     org: 'Top 0.43% of 23,000+ students from 173 countries',
     img: '/images/certs/blue-ocean.jpg',
-    href: doc('Awards & Honors/Blue Ocean - Top 100.pdf'),
   },
   {
     title: 'BRICS CCI Young Fellow',
     org: 'Changemaker in Social Impact & Entrepreneurship, 2026 cohort',
     img: '/images/certs/brics.jpg',
-    href: doc('Awards & Honors/BRICS CCI - Young Fellow -  Letter & Award.pdf'),
   },
   {
     title: 'Young Entrepreneur Rising Star',
     org: 'Aatmanirbhar MSME & Startup Awards 2026, CIMSME',
     img: '/images/certs/cimsme.jpg',
-    href: doc('Awards & Honors/CIMSME - Young Entreprenuer Rising Star Award.jpeg'),
   },
   {
     title: 'Youngest Entrepreneur Mentor',
     org: 'Presented by Dr. Kiran Bedi',
     img: '/images/certs/kiran-bedi.jpg',
-    href: doc('Awards & Honors/Dr. Kiran Bedi - Youngest Entreprenuer Mentor Award.jpeg'),
   },
 ]
 
@@ -101,7 +93,6 @@ export const RESEARCH_AWARDS: Cert[] = [
     title: 'CREST Gold Award',
     org: 'British Science Association, for the ODOP export-performance research',
     img: '/images/certs/crest-gold.jpg',
-    href: doc('Awards & Honors/ODOP Research - Gold Crest Award.pdf'),
   },
 ]
 
@@ -110,7 +101,6 @@ export type Honor = {
   org: string
   // Present only when there's a certificate to show.
   img?: string
-  href?: string
 }
 
 export const HONORS: Honor[] = [
@@ -118,67 +108,56 @@ export const HONORS: Honor[] = [
     title: 'CISCE Certificate of Merit',
     org: 'Top 0.1% nationally in History, Civics & Geography',
     img: '/images/certs/cisce-3-subjects.jpg',
-    href: doc('Academic Honours & Awards/CISCE Merit - Top 0.1_ Nationally - 3 Subjects.pdf'),
   },
   {
     title: 'CISCE Certificate of Merit',
     org: 'Top 0.1% nationally in Spanish',
     img: '/images/certs/cisce-spanish.jpg',
-    href: doc('Academic Honours & Awards/CISCE Merit - Top 0.1_ Nationally - Spanish.pdf'),
   },
   {
     title: 'NSDC Youth Contributor',
     org: 'National Skill Development Corporation',
     img: '/images/certs/nsdc.jpg',
-    href: doc('Neev Ventures/Ministry of Skill & Entrepreneurship - NSDC - Youth Contributor.pdf'),
   },
   {
     title: 'BRICS CCI Young Fellow',
     org: 'Changemaker Award in Social Impact',
     img: '/images/certs/brics.jpg',
-    href: doc('Awards & Honors/BRICS CCI - Young Fellow -  Letter & Award.pdf'),
   },
   {
     title: 'Young Entrepreneur Rising Star',
     org: 'Aatmanirbhar MSME & Startup Awards, CIMSME',
     img: '/images/certs/cimsme.jpg',
-    href: doc('Awards & Honors/CIMSME - Young Entreprenuer Rising Star Award.jpeg'),
   },
   {
     title: 'CREST Gold Award',
     org: 'British Science Association',
     img: '/images/certs/crest-gold.jpg',
-    href: doc('Awards & Honors/ODOP Research - Gold Crest Award.pdf'),
   },
   {
     title: 'AP Scholar with Honor',
     org: 'College Board',
     img: '/images/certs/ap-scholar.jpg',
-    href: doc('Academic Honours & Awards/AP Scholors with Honors Award.pdf'),
   },
   {
     title: 'Innovator Award',
     org: 'The Shri Ram School, for creative and original thinking',
     img: '/images/certs/innovator.jpg',
-    href: doc('Awards & Honors/Innovator Award.pdf'),
   },
   {
     title: 'Blue Ocean Top 100',
     org: 'Out of 23,000 entrants from 173 countries',
     img: '/images/certs/blue-ocean.jpg',
-    href: doc('Awards & Honors/Blue Ocean - Top 100.pdf'),
   },
   {
     title: 'DELE Spanish Diploma, A2',
     org: 'Instituto Cervantes',
     img: '/images/certs/spanish-diploma.jpg',
-    href: doc('Academic Honours & Awards/Spanish Diploma.pdf'),
   },
   {
     title: 'Youngest Entrepreneur Mentor',
     org: 'Navjyoti India Foundation, presented by Dr. Kiran Bedi',
     img: '/images/certs/kiran-bedi.jpg',
-    href: doc('Awards & Honors/Dr. Kiran Bedi - Youngest Entreprenuer Mentor Award.jpeg'),
   },
   { title: 'National Economics Olympiad', org: 'SRCC, All India Rank 43' },
   { title: 'IMO Southeast Asia, Bronze', org: 'National level' },
@@ -187,12 +166,12 @@ export const HONORS: Honor[] = [
 export const DOCUMENTARY_ID = 'ZZ-DO6HTit8'
 
 export const FILM_AWARDS: Cert[] = [
-  { title: 'Best Young Filmmaker Under 18', org: 'Indian Independent Film Festival', img: '/images/certs/film-iiff.jpg', href: '/images/certs/film-iiff.jpg' },
-  { title: 'Winner, Student Film', org: 'Crown Wood International Film Festival', img: '/images/certs/film-crown-wood.jpg', href: '/images/certs/film-crown-wood.jpg' },
-  { title: 'Winner', org: 'Rameshwaram International Film Festival 2026', img: '/images/certs/film-rameshwaram.jpg', href: '/images/certs/film-rameshwaram.jpg' },
-  { title: 'Best Short Documentary Film', org: 'Aryan International Children’s Film Festival of Jaipur 2026', img: '/images/certs/film-aryan.jpg', href: '/images/certs/film-aryan.jpg' },
-  { title: 'Best Director, Honorable Mention', org: 'Caravan International Film Festival', img: '/images/certs/film-caravan.jpg', href: '/images/certs/film-caravan.jpg' },
-  { title: 'Honorable Mention, Best Student Short Film', org: 'Makizhmithran International Film Festival', img: '/images/certs/film-makizhmithran.jpg', href: '/images/certs/film-makizhmithran.jpg' },
+  { title: 'Best Young Filmmaker Under 18', org: 'Indian Independent Film Festival', img: '/images/certs/film-iiff.jpg' },
+  { title: 'Winner, Student Film', org: 'Crown Wood International Film Festival', img: '/images/certs/film-crown-wood.jpg' },
+  { title: 'Winner', org: 'Rameshwaram International Film Festival 2026', img: '/images/certs/film-rameshwaram.jpg' },
+  { title: 'Best Short Documentary Film', org: 'Aryan International Children’s Film Festival of Jaipur 2026', img: '/images/certs/film-aryan.jpg' },
+  { title: 'Best Director, Honorable Mention', org: 'Caravan International Film Festival', img: '/images/certs/film-caravan.jpg' },
+  { title: 'Honorable Mention, Best Student Short Film', org: 'Makizhmithran International Film Festival', img: '/images/certs/film-makizhmithran.jpg' },
 ]
 
 export const MUSIC_THEATRE = [
@@ -218,11 +197,11 @@ export const MUSIC_THEATRE = [
 
 export const MUSIC_PHOTOS = [
   { src: '/images/music/concert-1.jpg', alt: 'Suveer playing electric guitar with the band at a performance concert' },
-  { src: '/images/music/concert-2.jpg', alt: 'The band performing on stage' },
+  { src: '/images/music/concert-3.jpg', alt: 'Suveer performing a guitar solo on stage', portrait: true },
 ]
 
 export const THEATRE_PHOTOS = [
-  { src: '/images/theatre/play-2.jpg', alt: 'Suveer on stage in a Stage 4 Change production' },
+  { src: '/images/theatre/play-4.jpg', alt: 'Suveer in costume, greeting the audience on stage' },
   { src: '/images/theatre/play-1.jpg', alt: 'A scene at a desk from a school production' },
   { src: '/images/theatre/play-3.jpg', alt: 'Suveer in costume, mid-scene' },
 ]
@@ -230,21 +209,18 @@ export const THEATRE_PHOTOS = [
 export const MUSIC_THEATRE_CERTS: Cert[] = [
   {
     title: 'Stage 4 Change',
-    org: 'Letter of appreciation, The Bigger Picture',
+    org: 'Certificate of Appreciation, The Bigger Picture',
     img: '/images/certs/stage-4-change.jpg',
-    href: doc('Music _ Theatre/Stage for Change - Letter.pdf'),
   },
   {
     title: 'Grade 6 Guitar, Rock & Pop',
     org: 'Trinity College London',
     img: '/images/certs/trinity.jpg',
-    href: doc('Music _ Theatre/Trinity Certificate.jpg'),
   },
   {
     title: 'Grade 7 Acting, Merit',
     org: 'London Academy of Music & Dramatic Art',
     img: '/images/certs/lamda.jpg',
-    href: doc('Music _ Theatre/Lamda - Grade 7 .pdf'),
   },
 ]
 
