@@ -12,6 +12,7 @@ import {
   MUSIC_THEATRE_CERTS,
   NAV,
   NEEV_AWARDS,
+  NEEV_TEXT_AWARDS,
   NEEV_PILLARS,
   NEEV_STATS,
   NEEV_URL,
@@ -160,6 +161,19 @@ function CertFeature({ cert, eyebrow, text }: { cert: Cert; eyebrow: string; tex
         <p>{text}</p>
       </div>
     </div>
+  )
+}
+
+function TextHonors({ items }: { items: { title: string; org: string }[] }) {
+  return (
+    <ul className="honors">
+      {items.map((h, i) => (
+        <li key={h.title + h.org} className="reveal" style={{ transitionDelay: `${(i % 2) * 0.06}s` }}>
+          <h3>{h.title}</h3>
+          <p>{h.org}</p>
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -323,6 +337,7 @@ function NeevPage() {
       <section className="section">
         <SectionHead eyebrow="Recognition" title="Awards & recognition" />
         <CertGrid items={NEEV_AWARDS} />
+        <TextHonors items={NEEV_TEXT_AWARDS} />
       </section>
     </>
   )
@@ -478,16 +493,7 @@ function HonorsPage() {
     <>
       <PageHead eyebrow="Honors & Awards" title="Recognition along the way." />
       <CertGrid items={certs} />
-      {others.length > 0 && (
-        <ul className="honors">
-          {others.map((h, i) => (
-            <li key={h.title + h.org} className="reveal" style={{ transitionDelay: `${(i % 2) * 0.06}s` }}>
-              <h3>{h.title}</h3>
-              <p>{h.org}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      {others.length > 0 && <TextHonors items={others} />}
     </>
   )
 }

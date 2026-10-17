@@ -86,12 +86,10 @@ export const NEEV_AWARDS: Cert[] = [
     org: 'Presented by Dr. Kiran Bedi',
     img: '/images/certs/kiran-bedi.jpg',
   },
-  {
-    title: 'NSDC Youth Contributor',
-    org: 'National Skill Development Corporation',
-    img: '/images/certs/nsdc.jpg',
-  },
 ]
+
+// Neev recognition without a certificate image, listed as text under the cards.
+export const NEEV_TEXT_AWARDS = [{ title: 'NSDC Youth Contributor', org: 'National Skill Development Corporation' }]
 
 export const RESEARCH_AWARDS: Cert[] = [
   {
