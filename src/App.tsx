@@ -3,6 +3,7 @@ import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-
 import {
   DOCUMENTARY_ID,
   EMAIL,
+  INSTAGRAM_URL,
   EXPERIENCE,
   FILM_AWARDS,
   GALLERY,
@@ -575,6 +576,9 @@ function ContactPage() {
       <div className="hero-actions center fade-up" style={{ animationDelay: '0.3s' }}>
         <a className="btn primary" href={`mailto:${EMAIL}`}>
           {EMAIL}
+        </a>
+        <a className="btn ghost" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+          Instagram: @project_navjeevan
         </a>
       </div>
     </div>

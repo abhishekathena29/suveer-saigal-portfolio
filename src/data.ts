@@ -1,5 +1,6 @@
 export const NEEV_URL = 'https://www.neevventures.in/'
 export const EMAIL = 'suveer.saigal2009@gmail.com'
+export const INSTAGRAM_URL = 'https://www.instagram.com/project_navjeevan/'
 
 export const NAV = [
   { path: '/neev-ventures', label: 'Neev Ventures' },
