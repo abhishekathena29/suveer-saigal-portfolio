@@ -821,6 +821,11 @@ main {
   aspect-ratio: auto;
 }
 
+/* Three landscape photos over three portrait ones. */
+.photo-grid.n6 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* A landscape photo beside a portrait one, columns sized so heights line up. */
 .photo-grid.n2.mixed {
   grid-template-columns: 2.37fr 1fr;
@@ -1146,7 +1151,8 @@ a.card {
 @media (max-width: 520px) {
   .photo-grid.n2,
   .photo-grid.n2.mixed,
-  .photo-grid.n3 {
+  .photo-grid.n3,
+  .photo-grid.n6 {
     grid-template-columns: 1fr;
   }
 

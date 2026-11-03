@@ -20,6 +20,7 @@ import {
   RESEARCH,
   RESEARCH_AWARDS,
   THEATRE_PHOTOS,
+  WOOD_CARVING_PHOTOS,
   type Cert,
 } from './data'
 import './App.css'
@@ -502,7 +503,7 @@ function MusicTheatrePage() {
   return (
     <>
       <PageHead
-        eyebrow="Music & Theatre"
+        eyebrow="Creative"
         title="On stage, and behind the strings."
         intro="Guitar with the band, lead roles on stage, and theatre that raises money for causes that matter."
       />
@@ -523,6 +524,10 @@ function MusicTheatrePage() {
       <section className="section">
         <SectionHead eyebrow="Theatre" title="In character" />
         <PhotoGrid photos={THEATRE_PHOTOS} />
+      </section>
+      <section className="section">
+        <SectionHead eyebrow="Wood carving" title="Shaped by hand" />
+        <PhotoGrid photos={WOOD_CARVING_PHOTOS} />
       </section>
       <section className="section">
         <SectionHead eyebrow="Certificates" title="Grades & recognition" />

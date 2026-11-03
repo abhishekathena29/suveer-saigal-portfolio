@@ -7,7 +7,7 @@ export const NAV = [
   { path: '/experience', label: 'Experience' },
   { path: '/research', label: 'Research' },
   { path: '/honors', label: 'Honors' },
-  { path: '/music-theatre', label: 'Music & Theatre' },
+  { path: '/music-theatre', label: 'Creative' },
   { path: '/press', label: 'Press' },
   { path: '/contact', label: 'Contact' },
 ]
@@ -175,6 +175,7 @@ export const HONORS: Honor[] = [
 export const DOCUMENTARY_ID = 'ZZ-DO6HTit8'
 
 export const FILM_AWARDS: Cert[] = [
+  { title: 'Best Documentary, School Section', org: '15th Delhi Shorts International Film Festival 2026', img: '/images/certs/film-delhi-shorts.jpg' },
   { title: 'Best Young Filmmaker Under 18', org: 'Indian Independent Film Festival', img: '/images/certs/film-iiff.jpg' },
   { title: 'Winner, Student Film', org: 'Crown Wood International Film Festival', img: '/images/certs/film-crown-wood.jpg' },
   { title: 'Winner', org: 'Rameshwaram International Film Festival 2026', img: '/images/certs/film-rameshwaram.jpg' },
@@ -213,6 +214,15 @@ export const THEATRE_PHOTOS = [
   { src: '/images/theatre/play-4.jpg', alt: 'Suveer in costume, greeting the audience on stage' },
   { src: '/images/theatre/play-1.jpg', alt: 'A scene at a desk from a school production' },
   { src: '/images/theatre/play-3.jpg', alt: 'Suveer in costume, mid-scene' },
+]
+
+export const WOOD_CARVING_PHOTOS = [
+  { src: '/images/wood-carving/spoon.jpg', alt: 'A hand-carved wooden spoon' },
+  { src: '/images/wood-carving/figure.jpg', alt: 'A small carved figurine beside a carving knife and wood shavings' },
+  { src: '/images/wood-carving/bird.jpg', alt: 'A carved and painted wooden bird' },
+  { src: '/images/wood-carving/pillar.jpg', alt: 'A carved wooden chess-piece-style figure', portrait: true },
+  { src: '/images/wood-carving/in-progress.jpg', alt: 'A carving in progress, surrounded by wood shavings', portrait: true },
+  { src: '/images/wood-carving/knife.jpg', alt: 'A hand-carved wooden knife', portrait: true },
 ]
 
 export const MUSIC_THEATRE_CERTS: Cert[] = [
